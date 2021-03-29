@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:extended_image/src/extended_image_typedef.dart';
 import 'package:flutter/material.dart';
 
+import '../../extended_image.dart';
 import '../extended_image_utils.dart';
 
 class EditActionDetails {
@@ -373,6 +374,7 @@ class EditorConfig {
     this.animationDuration = const Duration(milliseconds: 200),
     this.tickerDuration = const Duration(milliseconds: 400),
     this.cropAspectRatio = CropAspectRatios.custom,
+    this.initCropRect,
     this.initCropRectType = InitCropRectType.imageRect,
     this.cropLayerPainter = const EditorCropLayerPainter(),
     this.speed = 1.0,
@@ -426,6 +428,9 @@ class EditorConfig {
   /// Aspect ratio of crop rect
   /// default is custom
   final double? cropAspectRatio;
+
+  /// Initial crop rect
+  final EditorInitCropHandler? initCropRect;
 
   /// Init crop rect base on initial image rect or image layout rect
   final InitCropRectType initCropRectType;

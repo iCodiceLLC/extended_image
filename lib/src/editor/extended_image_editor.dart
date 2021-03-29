@@ -7,6 +7,7 @@ import 'package:extended_image_library/extended_image_library.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import '../../extended_image.dart';
 import '../extended_image.dart';
 import 'extended_image_crop_layer.dart';
 
@@ -184,6 +185,11 @@ class ExtendedImageEditorState extends State<ExtendedImageEditor> {
 
   Rect _initCropRect(Rect rect) {
     Rect cropRect = _editActionDetails!.getRectWithScale(rect);
+
+    final EditorInitCropHandler? initCropRect = _editorConfig!.initCropRect;
+    if (initCropRect != null) {
+      cropRect = initCropRect(cropRect);
+    }
 
     if (_editActionDetails!.cropAspectRatio != null) {
       final double aspectRatio = _editActionDetails!.cropAspectRatio!;

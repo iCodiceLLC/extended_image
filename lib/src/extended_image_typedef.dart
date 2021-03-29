@@ -78,13 +78,15 @@ typedef MergeEditRect = Rect Function(Rect editRect);
 /// Build Gesture Image
 typedef BuildGestureImage = Widget Function(GestureDetails gestureDetails);
 
-/// Init GestureConfig when image is ready.
+/// Init EditorConfig when image is ready.
 typedef InitEditorConfigHandler = EditorConfig? Function(
     ExtendedImageState? state);
 
 /// Get editor mask color base on pointerDown
 typedef EditorMaskColorHandler = Color Function(
     BuildContext context, bool pointerDown);
+
+typedef EditorInitCropHandler = Rect Function(Rect imageRect);
 
 /// Build Hero only for sliding page
 /// the transform of sliding page must be working on Hero
