@@ -101,7 +101,7 @@ class EditActionDetails {
     /// take care of boundary
     final Rect newCropRect = getDestinationRect(
       rect: layoutRect,
-      inputSize: Size(cropRect!.height, cropRect!.width),
+      inputSize: cropRect!.size,
       fit: fit,
     );
 
