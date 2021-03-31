@@ -30,17 +30,7 @@ class EditActionDetails {
   double? originalAspectRatio;
 
   ///  aspect ratio of crop rect
-  double? _cropAspectRatio;
-  double? get cropAspectRatio {
-    if (_cropAspectRatio != null) {
-      return isHalfPi ? 1.0 / _cropAspectRatio! : _cropAspectRatio;
-    }
-    return null;
-  }
-
-  set cropAspectRatio(double? value) {
-    _cropAspectRatio = value;
-  }
+  double? cropAspectRatio;
 
   ///image
   Rect? get screenDestinationRect => _screenDestinationRect;
@@ -94,7 +84,7 @@ class EditActionDetails {
       _rotateRadian = 0.0;
     }
 
-    // _cropRect = rotateRect(_cropRect, _cropRect.center, -angle);
+    cropRect = rotateRect(cropRect!, cropRect!.center, -angle);
     // screenDestinationRect =
     //     rotateRect(screenDestinationRect, screenCropRect.center, -angle);
 
